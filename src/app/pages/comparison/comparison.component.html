@@ -1,0 +1,101 @@
+<div class="container py-3">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="#" routerLink="../home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Comparison</li>
+        </ol>
+    </nav>
+    <div>
+        <h2>Comparison</h2>
+    </div>
+    <div class="text-center my-5" *ngIf="compareproduct.length === 0; else arrayNotEmpty">
+        <p class="d-flex justify-content-center">Your Compare cart is Empty</p>
+        <button class="btn btn-warning rounded-0">Continue</button>
+    </div>
+    <ng-template #arrayNotEmpty>
+        <div class="d-flex">
+            <div class="col-4 col-md-2">
+                <div class="label1 border">
+                    <p >Products</p>
+                </div>
+                <div class="label  border">
+                    <p>Rating</p>
+                </div>
+                <div class="label border">
+                    <p>Availability</p>
+                </div>
+                <div class="label border">
+                    <p>Price</p>
+                </div>
+                <div class="label border">
+                    <p>Add To Cart</p>
+                </div>
+                <div class="label border">
+                    <p>Color</p>
+                </div>
+                <div class="label border">
+                    <p>Speed</p>
+                </div>
+                <div class="label border">
+                    <p>Power Source</p>
+                </div>
+                <div class="label border">
+                    <p>Battery Cell Type</p>
+                </div> 
+                <div class="label border">
+                    <p>Voltage</p>
+                </div>
+                <div class="label border">
+                    <p>Battery Capacity</p>
+                </div>
+                <div class="label border">
+                </div>
+            </div>
+            <div class="d-flex overflow-auto col-8 col-md-10">
+            <div class="col" *ngFor="let product of compareproduct, index as indx">
+                <div class="border content1">
+                        <div class="d-flex justify-content-center"><img src="{{product.image}}" height="140" width="auto">
+                        </div>
+                         <div class="d-flex justify-content-center"><p>{{product.name}}</p>
+                        </div>
+                </div>
+                <div class="border content">
+                    <p>Rating</p>
+                </div>
+                <div class="border content">
+                    <p>Availability</p>
+                </div>
+                <div class="border content">
+                    <p> <i class="bi bi-currency-rupee"></i>{{product.price}}</p>
+                </div>
+                <div class="border content">
+                   <button class="btn btn-warning rounded-0">Add to Cart</button>
+                </div>
+                <div class="border content">
+                    <p>{{product.color}}</p>
+                </div>
+                <div class="border content">
+                    <p>{{product.speed}}</p>
+                </div>
+                <div class="border content">
+                    <p>{{product.power_source}}</p>
+                </div>
+                <div class="border content">
+                    <p>{{product.battery_cell_type}}</p>
+                </div> 
+                <div class="border content">
+                    <p>{{product.voltage}}</p>
+                </div>
+                <div class="border content">
+                    <p>{{product.battery_capacity}}</p>
+                </div>
+                <div class="border content">
+                    <button class="btn btn-light rounded-0" (click)="deleteProduct(indx)">Remove</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </ng-template>
+</div>

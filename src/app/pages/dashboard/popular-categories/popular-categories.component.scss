@@ -1,0 +1,32 @@
+@media screen and (min-width: 399px) and (max-width: 477px) {
+  .card-small {
+    display: flex !important;
+    width: 100%;
+  }
+  .w-50-sm{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 477px) {
+  .card-setting {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .card-width {
+    width: 100% !important;
+  }
+}
+
+ img{
+    width:90%
+  }
+
+h5{
+  font-size: 17px;
+}
+a{
+  font-size: 14px;
+}

@@ -1,0 +1,210 @@
+<div class="container">
+  <div class="d-flex justify-content-between mt-4 align-items-center">
+    <div class="">
+      <h5 style="min-width: 175px;">New Arrivals</h5>
+    </div>
+    <div class="w-50">
+      <p class="border-bottom border-4 mb-0 w-100"></p>
+    </div>
+    <div class="d-none d-md-flex">
+      <div class="text-center">
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'All'}" (click)="active = 'All'">All</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'power'}" (click)="active = 'power'">Power Tool</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'hand'}" (click)="active = 'hand'">Hand Tool</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark  rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'plumbing'}" (click)="active = 'plumbing'">Plumbing</a>
+      </div>
+    </div>
+    <div class=" d-flex justify-content-center ">
+      <span [ngClass]="{'text-warning': active === 'arrow-left'}" (click)="active = 'arrow-left'"
+        data-bs-target="#carouselExampleFade" data-bs-slide="prev"><i class="bi bi-arrow-left-square-fill fs-4"></i></span>
+      <span [ngClass]="{'text-warning': active === 'arrow-right'}" (click)="active = 'arrow-right'"
+        data-bs-target="#carouselExampleFade" data-bs-slide="next"><i class="bi bi-arrow-right-square-fill fs-4"></i></span>
+    </div>
+  </div>
+
+  <div>
+    <div class="d-flex d-md-none justify-content-center mb-4">
+      <div>
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'All'}" (click)="active = 'All'">All</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'power'}" (click)="active = 'power'">Power Tool</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'hand'}" (click)="active = 'hand'">Hand Tool</a>
+      </div>
+      <div>
+        <a class="badge badge-pill text-dark  rounded-pill text-decoration-none"
+          [ngClass]="{'border-yellow': active === 'plumbing'}" (click)="active = 'plumbing'">Plumbing</a>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="d-flex">
+        <div class="card mb-3 border-none me-2" style="max-width: 540px;">
+          <div class="d-flex justify-content-between ">
+            <div class="badge bg-primary mt-1 ms-1 border-none" style="width: 50px;">NEW</div>
+            <div class="mt-1"> <i class="colorblack bi bi-fullscreen pt-1 pb-2 ps-2 pe-2 "></i></div>
+          </div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../../assets/images/product-1.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Electric Planer Brandix KL370090G 300 Watts</h5>
+                <p class="card-text">12 Review</p>
+                <p class="card-text"><small class="text-muted">$749</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 border-none me-2" style="max-width: 540px;">
+          <div class="d-flex justify-content-between ">
+            <div class="badge bg-primary mt-1 ms-1 border-none" style="width: 50px;">NEW</div>
+            <div class="mt-1"> <i class="colorblack bi bi-fullscreen pt-1 pb-2 ps-2 pe-2 "></i></div>
+          </div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../../assets/images/product-1.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Electric Planer Brandix KL370090G 300 Watts</h5>
+                <p class="card-text">12 Review </p>
+                <p class="card-text"><small class="text-muted">$749</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-3 border-none me-2" style="max-width: 540px;">
+          <div class="d-flex justify-content-between ">
+            <div class="badge bg-primary mt-1 ms-1 border-none" style="width: 50px;">NEW</div>
+            <div class="mt-1"> <i class="colorblack bi bi-fullscreen pt-1 pb-2 ps-2 pe-2 "></i></div>
+          </div>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../../assets/images/product-1.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Electric Planer Brandix KL370090G 300 Watts</h5>
+                <p class="card-text">12 Review </p>
+                <p class="card-text"><small class="text-muted">$749</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <div id="carouselExampleFade" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+              <div class="col mb-2" *ngFor="let product of products">
+                <div class="card mb-3 border-none me-2 h-100" style="max-width: 500px;">
+                  <div class="badge bg-primary mt-1 ms-1 border-none position-absolute top-0 start-0" style="width: 40px;">NEW</div>
+                  <div class="position-absolute top-0 end-0"> <i class="colorblack bi bi-fullscreen p-1"></i></div>
+                  <div class="row g-0 p-2 pt-4 h-100">
+                    <div class="col-md-4">
+                      <img src="{{product.Image}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body p-0 m-1">
+                        <h6 class="card-title">{{product.title}}</h6>
+                        <p class="card-text mb-0"> 
+                          <ngb-rating [(rate)]="product.rating">
+                          <ng-template let-fill="fill" let-index="index">
+                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                  [class.low]="index < 3"></i>
+                          </ng-template>
+                      </ngb-rating>
+                      12 Review</p>
+                        <p class="card-text"><small class="text-muted">{{product.price}}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+              <div class="col mb-2" *ngFor="let product of products">
+                <div class="card mb-3 border-none me-2 h-100" style="max-width: 500px;">
+                    <div class="badge bg-primary mt-1 ms-1 border-none position-absolute top-0 start-0" style="width: 40px;">NEW</div>
+                    <div class="position-absolute top-0 end-0"> <i class="colorblack bi bi-fullscreen p-1"></i></div>
+                  <div class="row g-0 p-2 pt-4 h-100">
+                    <div class="col-md-4">
+                      <img src="{{product.Image}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body p-0 m-1">
+                        <h6 class="card-title">{{product.title}}</h6>
+                        <p class="card-text mb-0"> <ngb-rating [(rate)]="product.rating">
+                          <ng-template let-fill="fill" let-index="index">
+                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                  [class.low]="index < 3"></i>
+                          </ng-template>
+                      </ngb-rating>12 Review</p>
+                        <p class="card-text"><small class="text-muted">{{product.price}}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+              <div class="col mb-2" *ngFor="let product of products">
+                <div class="card mb-3 border-none me-2 h-100" style="max-width: 500px;">
+                  <div class="badge bg-primary mt-1 ms-1 border-none position-absolute top-0 start-0" style="width: 40px;">NEW</div>
+                  <div class="position-absolute top-0 end-0"> <i class="colorblack bi bi-fullscreen p-1"></i></div>
+                  <div class="row g-0 p-2 pt-4 h-100">
+                    <div class="col-md-4 ">
+                      <img src="{{product.Image}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body p-0 m-1">
+                        <h6 class="card-title">{{product.title}}</h6>
+                        <p class="card-text mb-0">
+                          <ngb-rating [(rate)]="product.rating">
+                          <ng-template let-fill="fill" let-index="index">
+                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                  [class.low]="index < 3"></i>
+                          </ng-template>
+                      </ngb-rating>
+                      12 Review</p>
+                        <p class="card-text"><small class="text-muted">{{product.price}}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+
+

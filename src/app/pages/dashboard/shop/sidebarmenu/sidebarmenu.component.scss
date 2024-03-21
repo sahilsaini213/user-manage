@@ -1,0 +1,70 @@
+// .accordion-button {
+//    background-color: revert !important;
+//    padding: 0 !important;
+//  &:focus {
+//     box-shadow: none !important;
+//  }
+// }
+
+// .sidebar-content:hover {
+//     color: #1a66ff !important;
+//   }
+.border-color{
+    border-color:#f0f0f0;
+    border-width: 2px;
+}
+  
+
+.button-bg:focus{
+    background-color: #f2f2f2 !important;
+    box-shadow: none !important;
+}
+.button-bg{
+    background-color: white !important;
+}
+
+.form-check-input:checked {
+    background-color: #ffd333;
+    border-color: #ffd333;
+    color: black;
+    // box-shadow: none;
+}
+.form-check-input{
+ box-shadow: none;
+}
+a{
+    font-size: 15px;
+    font-weight: 500;
+}
+a:hover{
+    color: #1a66ff !important;
+}
+
+.filter__title{
+    font-size: 15px;
+}
+.filter-categories__counter{
+    opacity: 75%;
+}
+
+button{
+    font-weight: bold;
+}
+
+ .button-reset{
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+ }
+
+.form-select{
+    width: 63% !important;
+}
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+    color: black;
+}
+
+.fs-20{
+font-size: 20px;
+}

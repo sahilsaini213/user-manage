@@ -1,0 +1,67 @@
+<div class="card border-corner m-2">
+  <div class="border-bottom">
+    <h3 class="p-3">Edit Profile</h3>
+  </div>
+    <div class="col-12 col-md-9 p-3">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="d-md-flex justify-content-between">
+    <div class="mb-3 col-12 col-md-5 ">
+      <label for="first name" class="form-label">First Name</label>
+      <input type="first name" class="form-control" placeholder="First Name" formControlName="firstname">
+    </div>
+    <div class="mb-3 col-12 col-md-5 ">
+      <label for="last name" class="form-label">Last Name</label>
+      <input type="last name" class="form-control" placeholder="Last Name" formControlName="lastname">
+    </div>
+    </div>
+    <div class="mb-3">
+        <label for="company name" class="form-label">Company Name</label>
+        <input type="company name" class="form-control" placeholder="Company Name" formControlName="company">
+      </div>
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <select class="form-select" aria-label="Default select example" formControlName="country">
+          <option selected>Select a Country</option>
+          <option value="United State">United State</option>
+          <option value="Russia">Russia</option>
+          <option value="Italy">Italy</option>
+          <option value="France">France</option>
+          <option value="Ukraine">Ukraine</option>
+          <option value="Germany">Germany</option>
+          <option value="Australia">Australia</option>
+        </select>
+      </div>
+       <div class="mb-3">
+      <label for="street" class="form-label">Street Address</label>
+      <input type="Street address" class="form-control" placeholder="Street Address" formControlName="street">
+    </div>
+    <div class="mb-3">
+      <label for="Apartment" class="form-label">Apartment</label>
+      <input type="apartment" class="form-control" placeholder="Apartment" formControlName="apartment">
+    </div>
+    <div class="mb-3">
+        <label for="Town" class="form-label">Town/City</label>
+        <input type="town/city" class="form-control" placeholder="Town/City" formControlName="town">
+      </div>
+      <div class="mb-3">
+        <label for="State" class="form-label">State/Country</label>
+        <input type="State" class="form-control" placeholder="State/Country" formControlName="state">
+      </div>
+      <div class="mb-3">
+        <label for="Postcode" class="form-label">Postcode/ZIP</label>
+        <input type="Postcode" class="form-control" placeholder="Postcode/ZIP" formControlName="postcode">
+      </div>
+      <div class="d-md-flex justify-content-between">
+      <div class="mb-3 col-12 col-md-5 ">
+        <label for="Email address" class="form-label">Email Address</label>
+        <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+      </div>
+      <div class="mb-3 col-12 col-md-5 ">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="phone" class="form-control" placeholder="Phone" formControlName="phone">
+      </div>
+      </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+  </div>
+  </div>

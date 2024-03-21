@@ -1,0 +1,93 @@
+.badage:hover{
+ background-color:#ffc107;
+}
+
+
+a{
+  cursor: pointer;
+}
+
+
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+
+.button1 {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.cart-button:hover{
+  background-color: #212529;
+  color: white;
+  border: #212529;
+}
+.cart-button{
+  font-size: 18px;
+}
+
+.radio-white[type=radio] {
+  appearance: none;
+  padding: 10px;
+  border-radius:50%;
+  accent-color:white;
+  background-color:white;
+}
+.radio-green[type=radio] {
+  appearance: none;
+  padding: 10px;
+  border-radius:50%;
+  accent-color: greenyellow;
+  background-color:greenyellow;
+}
+.radio-red[type=radio] {
+  appearance: none;
+  padding: 10px;
+  border-radius:50%;
+  accent-color:red;
+  background-color: red;
+}
+
+.radio-white[type=radio]:checked {
+  background-color:white;
+  appearance:auto;
+  border: 0px;
+  width: 5%;
+  height: 20px;
+}
+.radio-green[type=radio]:checked {
+  background-color:greenyellow;
+  appearance:auto;
+  border: 0px;
+  width: 5%;
+  height: 20px;
+  
+}
+.radio-red[type=radio]:checked {
+  background-color:red;
+  appearance:auto;
+  border: 0px;
+  width: 5%;
+  height: 20px;
+}
+
+.radio-blue[type=radio] {
+  appearance: none;
+  padding: 10px;
+  border-radius:50%;
+  accent-color:blue;
+  background-color:blue;
+}
+
+.bi{
+  cursor: pointer;
+}
+
+.toast-color{
+  background-color: #bde5a1;
+}

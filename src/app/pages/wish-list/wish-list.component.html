@@ -1,0 +1,65 @@
+<div class="container my-4">
+  <div>
+    <a routerLink="../home">Home</a>
+    <a>></a>
+    <a>wish list</a>
+  </div>
+  <div>
+    <h1>Wish List</h1>
+  </div>
+  <div class="text-center" *ngIf="wishProduct.length === 0; else arrayNotEmpty">
+    <p class="d-flex justify-content-center">Your wish list is empty</p>
+    <button class="btn btn-warning rounded-0">Continue</button>
+  </div>
+  <ng-template #arrayNotEmpty>
+    <div class="d-none d-sm-block">
+      <div class="table-responsive-xxl border-y rounded-0">
+        <table class="table">
+          <tr class="bg-light border">
+            <th>Image</th>
+            <th>Products</th>
+            <th>Stock Status</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr class="border" *ngFor="let product of wishProduct,index as indx">
+            <td><img src="{{product.image}}" class="img1"></td>
+            <td>{{product.name}}</td>
+            <td>
+              <p class="badge bg-success text-white">in stock</p>
+            </td>
+            <td><i class="bi bi-currency-rupee"></i>{{product.price}}</td>
+            <td><button class="btn btn-warning rounded-0" (click)="showToast(indx)">Add to Cart</button></td>
+            <td><button class="btn btn-secondary border border-0 rounded-0 text-nowrap" (click)="deleteProduct(indx)"><i
+                  class="bi bi-x"></i></button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card rounded-0 d-sm-none text-center p-3" *ngFor="let product of wishProduct,index as i">
+      <div class="text-end">
+        <button class="btn btn-light border border-0 rounded-0"><i class="bi bi-x" (click)="delete(i)"></i></button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <img src="{{product.image}}" width="200px">
+      </div>
+      <p class="border-bottom">{{product.name}}</p>
+      <div class="d-flex justify-content-center">
+        <div>
+          <div>
+            <p class="badge bg-success text-white">in stock</p>
+          </div>
+          <p class="text-center">
+            <i class="bi bi-currency-rupee"></i>{{product.price}}</p>
+            <button class="btn btn-warning rounded-0 text-nowrap" (click)="showToast(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+</div>
+
+<ngb-toast class='position-fixed top-0 end-0 p-2 bg-success z-3 rounded-0' *ngIf="show" [autohide]="true" [delay]="5000">
+  product is selected</ngb-toast>

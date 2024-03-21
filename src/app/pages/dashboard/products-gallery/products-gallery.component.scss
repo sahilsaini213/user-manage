@@ -1,0 +1,202 @@
+// card setting
+.hover-container {
+  padding: 4px;
+  }
+
+  .hidden-link {
+  display: none;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color:#333;
+  width:100%;
+  }
+
+.hover-container:hover {
+  
+  .hidden-link{
+  display:block;
+  align-items: end;
+}
+}
+
+// @media screen and (max-width:575px) {
+//   .hover-container:hover {
+//     height: 32rem;
+//     z-index: 3;
+    
+//     .hidden-link{
+//     display:block;
+//     align-items: end;
+//   }
+//   }
+// }
+
+// @media screen and (min-width:575px) and (max-width:991px) {
+//   .hover-container:hover {
+//     height: 32rem;
+//     z-index: 3;
+    
+//     .hidden-link{
+//     display:block;
+//     align-items: end;
+//   }
+//   }
+// }
+
+// @media screen and (min-width:991px) and (max-width:1200px) {
+//   .hover-container:hover {
+//     height: 29rem;
+//     z-index: 3;
+    
+//     .hidden-link{
+//     display:block;
+//     align-items: end;
+//   }
+//   }
+// }
+
+.bordercolorchange:hover  {
+       border-color: rgb(243, 228, 15);
+       border-width: 2px;
+       .bi-fullscreen{
+          background-color:rgb(243, 228, 15) ;
+         }
+}
+
+.bi-fullscreen{
+ font-size: 13px;
+}
+
+.cart_button:hover{
+background-color: #3d464d !important;
+color: white ;
+border: #333;
+}
+
+.heartcolor{
+  color:lightgrey;
+}
+
+
+.wishlist-button:hover{
+  background-color:lightgray;
+  .icon-color{
+    color:black !important;
+  }
+
+}
+
+
+
+// .card-scroll {
+
+// }
+
+.border-none{
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
+}
+
+.cart-button-width{
+  width: 100px;
+  font-size: small;
+}
+
+// top canvas 
+  .offcanvas-top{
+    height: 70px;
+    overflow: hidden;
+  }
+  .border-yellow{
+    border: 2px solid yellow !important;
+  }
+
+  // .badge:hover{
+  //  border: 2px solid rgb(168, 168, 168);
+  // }
+
+@media screen and (min-width:1200px) {
+.image-text-position{
+  top:15%;
+  left:35%;
+  button{
+    left: 36%;
+  }
+}
+}
+
+@media screen and (min-width:991px) and (max-width:1200px) {
+  .image-text-position{
+    top:19%;
+    left:31%;
+    button{
+      left: 36%;
+    }
+  }
+}
+  @media screen and (min-width:768px) and (max-width:991px) {
+    .image-text-position{
+      top:30%;
+      left:20%;
+      button{
+        left: 36%;
+      }
+    }
+  }
+  @media screen and (min-width:475px) and (max-width:768px) {
+    .image-text-position{
+      top:25%;
+      left:9%;
+      button{
+        left: 22%;
+      }
+    }
+    }
+
+
+    @media screen and (max-width:475px) {
+      .image-text-position{
+        top:20%;
+        left:15%;
+        width: 70%;
+        button{
+          left: 22%;
+        }
+      }
+      }
+        
+      .spinnerButtonHeight{
+        width: 100px;
+        height: 30px;
+      }
+a{
+  font-size: 15px;
+}
+
+.toast-color{
+  background-color: #bde5a1;
+}
+
+//rating
+.bi-star{
+  font-size: 0.9rem;
+  padding-right: 0.1rem;
+  color: #b0c4de;
+}
+.filled {
+  color: yellow;
+}
+
+img{
+ cursor: pointer;
+}
+
+.fs-14{
+  font-size: 14px;
+}
+
+.border-gray:hover{
+ border:2px solid rgb(214, 213, 213);
+}

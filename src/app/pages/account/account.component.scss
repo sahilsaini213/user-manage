@@ -1,0 +1,57 @@
+.border-corner{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+}
+span{
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+.res
+    {
+        overflow: scroll; 
+        overflow-wrap: normal;
+        overflow: hidden;
+        width: 100%;
+    }
+p{
+cursor:pointer;
+}
+
+@media screen and (max-width:991px) {
+    .active-link {
+        border-bottom: 4px solid #ffd333;
+        font-weight: bold;
+      }
+      .p-1{
+        padding: 10px !important;
+    }
+}
+
+@media screen and (min-width:991px) {
+    .active-link {
+        border-left: 4px solid #ffd333;
+        font-weight: bold;
+    
+  }
+}
+
+@media screen and (max-width:991px) {
+    .card{
+     border:none;
+  }
+}
+
+.row{
+    padding-left: 0rem !important;
+}
+
+p{
+    margin: 0%;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+

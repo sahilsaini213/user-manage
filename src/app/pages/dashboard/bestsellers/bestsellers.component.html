@@ -1,0 +1,144 @@
+<div class="container d-flex justify-content-between mt-4 align-items-center">
+  <div class="">
+    <h5 style="min-width: 175px;">Bestsellers</h5>
+  </div>
+  <div class="w-100">
+    <p class="border-bottom border-4 mb-0 w-100"></p>
+  </div>
+</div>
+
+<div class="container d-lg-flex justify-content-between z-1">
+
+  <div class="w-100 p-1 p-lg-0 pt-lg-1">
+    <div class=" card bordercolorchange me-lg-1 border-none box-height-lg hover-container1">
+      <div class="badge bg-primary mt-2 ms-2 border-none position-absolute top-0 start-0" style="width: 50px;">NEW</div>
+      <div class="position-absolute top-0 end-0"> <i class="colorblack bi bi-fullscreen p-1" (click)="viewProductDetail(firstObject)"></i>
+      </div>
+      <div class="d-sm-flex justify-content-center d-lg-block px-2">
+        <img class="card-img-top" src="{{firstObject.image}}" (click)="getObject(firstObject)" alt="Card image cap" width="90%" routerLink="/product-detail">
+        <div class="card-body d-flex align-items-center">
+          <div>
+            <a>{{firstObject.name}}</a>
+            <p>
+              <ngb-rating [rate]="firstObject.rating">
+                <ng-template let-fill="fill" let-index="index">
+                    <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                        [class.low]="index < 3"> </i>
+                </ng-template>
+            </ngb-rating>
+            12 Rating
+            </p>
+            <h6 class="card-text">
+              <i class="bi bi-currency-rupee"></i>
+              {{firstObject.price}}</h6>
+            <div class="hidden-link1">
+              <div class="d-flex justify-content-between align-items-center">
+                <div *ngIf="!showSpinner1">
+                  <button type="button" class="btn btn-warning colorblack border-none cart-button-width"
+                    (click)="getproductsAtIndex(firstObject)">Add To
+                    Cart
+                  </button>
+                  <!-- <ngb-toast class='position-fixed top-0 end-0 p-2 bg-success z-3' *ngIf="cartToast" [delay]="1000">
+                    "{{element}}"product is add to cart
+                  </ngb-toast> -->
+                </div>
+                <div class="d-flex ">
+                <div>
+                  <button class="btn rounded-0 wishlist-button">
+                  <i class=" heartcolor icon-color bi bi-heart-fill p-1"
+                    (click)="wishlistArray(firstObject)"></i>
+                  </button>
+              </div>
+              <div>
+                <div class="wishlist-button p-1" (click)="compareProduct(firstObject)">
+                  <i class=" heartcolor icon-color bi bi-bar-chart-fill p-1"></i>
+              </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div>
+    <div class="row row-cols-sm-2 row-cols-md-3 flex-wrap card-setting m-0">
+      <div class="col p-0 px-1 px-lg-1 my-1" *ngFor="let product of products;index as indx">
+
+
+        <div class="card hover-container bordercolorchange  border-none card-width-small">
+          <div class="contentshow">
+            <div class="badge bg-primary mt-2 ms-2 border-none position-absolute top-0 start-0" style="width: 50px;">
+              {{product.badge}}</div>
+            <div class="position-absolute top-0 end-0">
+              <i class="colorblack bi bi-fullscreen p-1" (click)="viewProductDetail(product)"></i>
+            </div>
+            <div class="mx-1">
+              <div class="p-3">
+              <img class="card-img-top" src="{{product.image}}" alt="Card image cap" (click)="getObject(product)" routerLink="/product-detail">
+              </div>
+              <div class="card-body">
+                <a href="#" class="card-title fs-15 text-decoration-none text-dark">{{product.name}}</a>
+
+                <h6 class="card-text text-nowrap">
+                  <div>
+                    <ngb-rating [rate]="product.rating">
+                      <ng-template let-fill="fill" let-index="index">
+                          <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                              [class.low]="index < 3"></i>
+                      </ng-template>
+                  </ngb-rating>
+                  <span class="product-card__rating-legend">12 Review</span>
+                </div>
+              </h6>
+              <h6>
+                  <i class="bi bi-currency-rupee"></i>{{product.price}}
+              </h6>
+              </div>
+            </div>
+          </div>
+          <div class="hidden-link">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+              <div *ngIf="!showSpinner1">
+                <button type="button" class="btn btn-warning colorblack border-none cart-button-width"
+                  (click)="getproductsAtIndex(product)">Add To
+                  Cart</button>
+              </div>
+
+              <div *ngIf="showSpinner1" class="loading-spinner2">
+                <!-- Add spinner component -->
+                <button class="btn btn-warning rounded-0 spinnerButtonHeight" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
+              </div>
+              </div>
+              <div class="d-flex">
+              <div class="px-2" (click)="wishlistArray(product)">
+                  <i class="heartcolor icon-color bi bi-heart-fill p-1"></i>
+              </div>
+              <div class="wishlist-button" (click)="compareProduct(product)">
+                <i class=" heartcolor icon-color bi bi-bar-chart-fill p-1"></i>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<ngb-toast class='position-fixed top-0 end-0 p-2 toast-color z-3' *ngIf="cartToast" [autohide]="true" [delay]="5000">
+  "{{element}}" Product is add to cart</ngb-toast>
+
+<ngb-toast class='position-fixed top-0 end-0 p-2 toast-color z-3' *ngIf="wishlistToast" [autohide]="true" [delay]="5000">
+  "{{element}}" Product is add to Your Wishlist</ngb-toast>

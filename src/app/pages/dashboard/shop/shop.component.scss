@@ -1,0 +1,228 @@
+// first card hover
+.hover-container {
+   padding: 12px;
+  width: 100%;
+  height: 100%;
+    }
+  
+    .hidden-link {
+    display: none;
+    padding: 2px 6px;
+    border-radius: 5px;
+    color:#333;
+    width:80%;
+    }
+  
+  .hover-container:hover {
+    height: 29rem;
+
+
+    .hidden-link{
+    display:block;
+    align-items: end;
+  }
+  }
+  
+//   second card hover
+  .hover-container2 {
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    }
+  
+    .hidden-link2 {
+    display: none;
+    padding: 2px 6px;
+    border-radius: 5px;
+    color:#333;
+    width:80%;
+    }
+  
+
+  .hover-container2:hover {
+    height: 45rem;
+
+
+    .hidden-link2 {
+    display:block;
+    align-items: end;
+    
+  }
+  }
+   
+//   both card hover case
+  .bordercolorchange:hover  {
+         border-color: rgb(243, 228, 15);
+         border-width: 2px;
+         .bi-fullscreen{
+            background-color:rgb(243, 228, 15) ;
+           }
+  }
+  
+  .colorblack:hover{
+  background-color: #291d1d !important;
+  color: white ;
+  }
+  
+  .heartcolor{
+    color:lightgrey;
+  }
+  
+  .icon-color:hover{
+    background-color: lightgrey;
+    color:black !important;
+  }
+  
+  // .card-scroll {
+  
+  // }
+  
+  .border-none{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+  }
+  
+  .cart-button-width{
+    width: 100px;
+    font-size: small;
+  }
+  
+  // top canvas 
+    .offcanvas-top{
+      height: 70px;
+      overflow: hidden;
+    }
+    .border-yellow{
+      border: 2px solid yellow;
+    }
+  
+    .badge:hover{
+     border: 2px solid rgb(168, 168, 168);
+    }
+  
+  @media screen and (min-width:1200px) {
+  .image-text-position{
+    top:15%;
+    left:35%;
+    button{
+      left: 36%;
+    }
+  }
+  }
+  
+  @media screen and (min-width:768px) and (max-width:1200px) {
+    .image-text-position{
+      top:15%;
+      left:30%;
+      button{
+        left: 36%;
+      }
+    }
+    }
+    @media screen and (min-width:470px) and (max-width:768px) {
+      .image-text-position{
+        top:25%;
+        left:30%;
+        button{
+          left: 22%;
+        }
+      }
+      }
+  
+      @media screen and (max-width:470px) {
+        .image-text-position{
+          top:20%;
+          left:24%;
+          button{
+            left: 22%;
+          }
+        }
+        }
+  
+  @media only screen and (min-width:768px) and (max-width: 1200px) {
+    .image-hight{
+      height: 20rem;
+    }
+  }
+  
+  @media only screen and (max-width:768px) {
+    .image-hight{
+      height: 30rem;
+    }
+  }
+
+  @media only screen and (max-width:477px) {
+    .card-small-case{
+      display: block !important;
+      
+    }
+  }
+
+  @media only screen and (max-width:477px) {
+    .width-small-case{
+     width: 100% !important;
+    }
+  }
+
+  .hover-card-button:hover {
+    background-color:rgb(42, 40, 40) !important ;
+    color: white ;
+  }
+
+li{
+  font-size: small;
+}
+
+.text-success{
+  font-size: medium;
+  
+}
+
+#fs{
+  font-size: medium;
+}
+
+//rating color
+i {
+  font-size: 0.9rem;
+  padding-right: 0.1rem;
+  color: #b0c4de;
+}
+.filled {
+  color: yellow;
+}
+ 
+@media only screen and (max-width:477px) {
+  .image-setting{
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
+.relative {
+  position: relative;
+  
+} 
+
+.absolute {
+  position: absolute;
+  top: 3px;
+  right: 19px;
+  width: 10px;
+  height: 0px;
+  
+}
+
+p{
+  font-size: 15px;
+}
+
+.offcanvas{
+  max-width: 290px
+}
+
+i{
+  color: #291d1d;
+}

@@ -1,0 +1,111 @@
+<div class="container my-2">
+    <div>
+        <a class="pe-2 text-decoration-none" routerLink="../home">Home</a>><a class="ps-2 text-decoration-none text-dark">shopping cart</a>
+    </div>
+    <div class="py-4">
+        <h3>Shopping Cart</h3>
+    </div>
+    <div class="text-center my-5" *ngIf="Products.length === 0; else arrayNotEmpty">
+      <p class="d-flex justify-content-center">Your shopping cart is Empty</p>
+      <button class="btn btn-warning rounded-0">Continue</button>
+    </div>
+    <ng-template #arrayNotEmpty>
+    <div class="d-none d-sm-block">
+    <div class=" border-y rounded-0 table-responsive">
+        <table class="table">
+          <tr class="bg-light border">
+            <th>Image</th>
+            <th>Products</th>
+            <th>price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          <tr *ngFor=" let product of Products,index as i" class="border flex-column">
+           <td><img src="{{product.image}}" class="img1"></td>
+           <td>{{product.name}}</td>
+           <td class="text-end text-md-center text-nowrap"><i class="bi bi-currency-rupee"></i>{{product.price}}</td>
+           <td class="text-end text-md-center">
+            <div class="d-flex justify-content-between border align-items-center">
+             <button class="btn rounded-0" (click)="updateQuantity(1)">
+              <i class="bi bi-plus"></i>
+            </button>
+             <p class="m-0 d-flex justify-content-center" style="width: 50px;">{{product.quantity}}</p>
+             <button class="btn rounded-0" (click)="updateQuantity(-1)" [disabled]="product.quantity === 0">
+              <i class="bi bi-dash-lg"></i>
+            </button>
+            </div>
+          </td>
+           <td class="text-end text-md-center text-nowrap"><i class="bi bi-currency-rupee"></i>{{product.totalPrice}}</td>
+           <td><button class="btn btn-secondary border border-0 rounded-0"><i class="bi bi-x" (click)="delete(i)"></i></button></td>
+          </tr>
+        </table>
+
+      </div>
+      </div>
+
+      <div class="card rounded-0 d-sm-none text-center p-3" *ngFor="let product of Products,index as i">
+        <div class="text-end">
+        <button class="btn btn-light border border-0 rounded-0"><i class="bi bi-x" (click)="delete(i)"></i></button>
+        </div>
+        <div class="d-flex justify-content-center">
+       <img src="{{product.image}}" width="150px">
+       </div>
+       <p class="border-bottom">{{product.name}}</p>
+       <div class="d-flex justify-content-end">
+       <th class="w-50 text-end">price:</th>
+       <td class="w-50 text-end"><i class="bi bi-currency-rupee"></i>{{product.price}}</td>
+       </div>
+       <div class="d-flex justify-content-end">
+        <th class="w-50 text-end">Quantity:</th>
+        <td class="w-50 text-end d-flex justify-content-end"> 
+          <div class="d-flex justify-content-end border align-items-center">
+          <button class="btn rounded-0" (click)="updateQuantity(1)"><i class="bi bi-plus"></i></button>
+          <p class="m-0 d-flex justify-content-center" style="width: 50px;">{{product.quantity}}</p>
+          <button class="btn rounded-0" (click)="updateQuantity(-1)" [disabled]="product.quantity === 0"><i class="bi bi-dash-lg"></i></button>
+         </div></td>
+       </div>
+       <div class="d-flex justify-content-end">
+        <th class="w-50 text-end">price:</th>
+        <td class="w-50 text-end"><i class="bi bi-currency-rupee"></i>{{product.totalPrice}}</td>
+       </div>
+      </div>
+
+       <div class="d-flex justify-content-between row row-cols-12 row-cols-md-6">
+        <form class="col-12 col-md-6">
+          <div class="mb-3 d-flex justify-content-between">
+            <input type="email" class="form-control m-3 rounded-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coupon Code">
+            <button type="submit" class="btn btn-warning rounded-0 m-3 text-nowrap">Apply Coupon</button>
+          </div>
+        </form>
+       <div class="col-12 col-md-6 text-end">
+        <button class="btn btn-secondary rounded-0 text-nowrap m-1 col-12 col-md-6">Continue Shopping</button>
+        <button class="btn btn-warning rounded-0 m-1 col-12 col-md-4">Update Cart</button>
+       </div>
+       </div>
+       <div class="d-flex justify-content-end">
+       <div class="card rounded-0 p-4" style="width: 400px;">
+          <div class="card-title"><h3>Cart Totals</h3></div>
+          <table>
+            <tr class="border-bottom">
+            <th class="text-start">Subtotal</th>
+            <td class="text-end"><i class="bi bi-currency-rupee"></i>{{calculateSubtotal()}}</td>
+            </tr>
+            <tr>
+              <th class="text-start">Shipping</th>
+              <td class="text-end"><i class="bi bi-currency-rupee"></i>25</td>
+              </tr>
+              <tr class="border-bottom">
+                <th class="text-start">Tax</th>
+                <td class="text-end"><i class="bi bi-currency-rupee"></i>{{Tax()}}</td>
+                </tr>
+                <tr class="fs-4">
+                  <th class="text-start">Total</th>
+                  <td class="text-end"><i class="bi bi-currency-rupee"></i>{{Total()}}</td>
+                  </tr>
+          </table>
+          <button class="btn btn-warning rounded-0" routerLink="../Checkout">Proceed To CheckOut</button>
+       </div>
+       </div>
+       </ng-template>
+</div>

@@ -1,0 +1,28 @@
+input[type=checkbox]:checked {
+    background-color: #ffd333 !important;
+    border: #ffd333;
+  }
+input{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.background-gray{
+background-color: #f7f7f7;
+}
+
+.form-check-input:checked {
+    background-color:#ffd333;
+    border: #ffd333;
+}
+button:hover{
+    background-color: #3d464d;
+    color: white;
+    border: #3d464d;
+}
+
+.terms:hover{
+    text-decoration: underline !important;
+}

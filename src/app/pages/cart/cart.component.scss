@@ -1,0 +1,39 @@
+.border-corner{
+border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+
+.fs-11{
+    font-size: 11px;
+}
+
+button:hover{
+    color: white;
+    background-color: black;
+}
+button{
+    width: 125px;
+}
+.button1{
+    background-color: #f0f0f0;
+}
+
+
+.border-end ,.border-corner{
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+
+  @keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+  }

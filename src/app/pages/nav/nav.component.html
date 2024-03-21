@@ -1,0 +1,381 @@
+<div class="bg-warning ">
+  <div class="container-xl d-flex justify-content-between align-items-center d-none d-lg-flex">
+    <div class=" bg-dark">
+      <div>
+        <div class="accordion" id="accordionExample">
+          <div class=" bg-dark accordion-width bg-lite-dark ">
+            <h6 class=" text-white position-relative bg-dark m-0">
+              <p class="bg-lite-dark text-white mb-0 p-2 ps-4 accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" aria-controls="collapseOne">
+                <i class="bi bi-justify-left pe-4"></i>
+                All Catagories
+              </p>
+            </h6>
+            <div id="collapseOne" class="accordion-collapse collapse bg-lite-dark text-white z-1 position-absolute"
+              data-bs-parent="#accordionExample">
+              <div *ngFor="let category of allCategories; index as indx" class="accordion-body p-0 accordion-width category-list">
+                <div class="category-dropdown py-2 ps-2">
+                  <div class="fw-bold d-flex justify-content-between">
+                    <p class="mb-0 category-head">{{category.heading}}</p>
+                    <i class="me-2">{{category.marker}}</i>
+                  </div>
+                  <div class="category-content z-1 min-w-200 {{indx===4? 'w-200 p-3':'w-800'}} {{indx>=4? '':'p-3'}}">
+                    <div class="d-flex flex-wrap justify-content-between ">
+                      <div class="{{indx===4? '':'col-3'}}{{indx===1? '':''}}" *ngFor="let subCategory of category.subCategories">
+                        <a href="#" class="border-bottom  fw-bold d-flex justify-content-between" >{{subCategory.label}}</a>
+                        <a href="#" *ngFor="let option of subCategory?.options">{{option}}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- bar -->
+    <div class="dropdown">
+      <button class="dropdown-btn onopacity fw-bold" routerLink="./home">{{navbar.content1}}
+        <i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2 min-w-200">
+        <div *ngFor="let option of Home">
+        <a href="#">{{option.Label}}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn onopacity fw-bold" routerLink="./account">{{navbar.content2}}
+        <i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2" style="width: 400px;" >
+        <div class="d-flex flex-wrap justify-content-between text-start">
+        <div class="p-2"  *ngFor="let menu of megamenu">
+        <h6 href="#" class="border-bottom">{{menu.heading}}</h6>
+        <div *ngFor="let option of menu.subMenu">
+        <a>{{option}}</a>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn onopacity fw-bold" routerLink="../shop">{{navbar.content3}} <i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2 min-w-200">
+        <div  *ngFor="let option of shops">
+        <a href="#" routerLink="{{option.link}}">{{option.label}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown" >
+      <button class="dropdown-btn onopacity fw-bold" ><a routerLink="../account" class="text-decoration-none text-dark">{{navbar.content4}}</a><i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2 min-w-200">
+        <div  *ngFor="let option of Account">
+        <a routerLink="{{option.link}}">{{option.label}}</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn onopacity fw-bold">{{navbar.content5}}<i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2 min-w-200">
+        <div *ngFor="let option of Blogs">
+         <a href="#">{{option.label}}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn onopacity fw-bold">{{navbar.content6}}<i class="bi bi-chevron-down"></i></button>
+      <div class="dropdown-content z-2 min-w-200">
+        <div  *ngFor="let option of pages">
+        <a href="#">{{option.label}}</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="d-flex align-items-center mb-0 btn onopacity"  routerLink="../wish-list"><i class="bi bi-heart position-relative">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+          {{wishProducts.length}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </i>
+    </p>
+    <div class="dropdown">
+      <a class="btn btn-warning" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button" aria-expanded="false" >
+        <p class="d-flex align-items-center mb-0 btn onopacity"><i class="bi bi-cart position-relative">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+              {{products.length}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </i>
+        </p>
+      </a>
+      <div class="dropdown-menu border-none width-19">
+        <app-cart></app-cart>
+      </div>
+    </div>
+
+
+    <p class="d-flex align-items-center mb-0 btn onopacity"data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><i class="bi bi-person position-relative"></i>
+     </p>
+     <form class="dropdown-menu" style="width: 20%;">
+      <div class="scrollbar">
+        <div class="ps-4 pe-4 pt-4 pb-3 ">
+          <h6 class="ms-4 mb-4">Log In to Your Account
+          </h6>
+          <div class="mb-3">
+    
+            <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="Email Address">
+          </div>
+          <div class="input-group mb-3">
+             <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+             <label class ="form-control border-start-0 text-end " for="inputGroupSelect02"><a class="text-decoration-none password-column-color password-column pointer p-1" href="#">forgot?</a></label>
+            </div>
+         
+            <div class="text-center ">
+              <button type="submit" class="btn btn-warning button-bg rounded-0">Login</button>
+            </div>
+            <div class="form-text text-center mt-3 pointer" routerLinkActive="active-link" routerLink="./login">Create An Account</div>
+        </div>
+      <div class="d-flex justify-content-start mt-3  ps-4 pe-4 border-top border-bottom hover pointer" routerLinkActive="active-link" routerLink="./account/dashboard">
+          <div>
+            <img class="rounded-circle mt-3" src="https://stroyka.angular.themeforest.scompiler.ru/themes/default-ltr/assets/images/avatars/avatar-3.jpg" alt=""  height="40px">
+           </div>
+           <div class="ms-3 mt-3" >
+            <p class="mb-0"> Helena Garcia</p>
+             <p>stroykaexample.com</p>
+           </div>
+        </div>
+      <div class="border-bottom  mt-3  ">
+        <h6 class="p-2 ps-4 pe-4 pointer hover" routerLinkActive="active-link" routerLink="./account/editprofile">Edit Profile</h6>
+        <h6 class="p-2 ps-4 pe-4 pointer hover" routerLinkActive="active-link" routerLink="./account/orderhistory">Order History</h6>
+        <h6 class="p-2 ps-4 pe-4 pointer hover" routerLinkActive="active-link" routerLink="./account/addresses">Addresses</h6>
+        <h6 class="p-2 ps-4 pe-4 pointer hover" routerLinkActive="active-link" routerLink="./account/password">Password</h6>
+      </div>
+      <div><h6 class="p-2 mt-3 ps-4 pe-4 pointer hover"  routerLinkActive="active-link" routerLink="./account/login">Logout</h6></div>
+      </div>
+      
+    </form>
+  </div>
+  <!-- show content up to lg -->
+  <!-- offcanvas -->
+  <div class="container d-flex justify-content-between d-lg-none">
+
+    <div class="d-flex ">
+
+      <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <i class="bi bi-justify-left pe-4 display-6"></i>
+      </a>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header border">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset border-start" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+          <div class="accordion p-0" id="accordionExample">
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex " id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a routerLink="./home">Home</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#Home" aria-expanded="true" aria-controls="Home">
+                </button>
+              </h2>
+              <div id="Home" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of Home">
+                  <a>{{option.Label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a href="hggg">categories</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#categories" aria-expanded="true"
+                  aria-controls="categories">
+                </button>
+              </h2>
+              <div id="categories" class="accordion-collapse collapse p-0 accordion-item" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border p-0" *ngFor="let category of categories,let i = index">
+                  <div class="accordion-item p-0 border-none">
+                    <h2 class="accordion-header border-none d-flex" id="headingOne">
+                      <div class="w-75 text-dark w-75">
+                        <a>{{category.label}}</a>
+                      </div>
+                      <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#subCategory" aria-expanded="true"
+                        aria-controls="categories">
+                      </button>
+                    </h2>
+                    <div id="subCategory" class="accordion-collapse collapse p-0 accordion-item"
+                      aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body border accordion-header" *ngFor="let subCategory of category.subcategories">
+                        <a>{{subCategory}}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a href="hggg">Shop</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                data-bs-toggle="collapse" data-bs-target="#shop" aria-expanded="true" aria-controls="shop">
+                </button>
+              </h2>
+              <div id="shop" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let shop of shops">
+                  <a>{{shop.label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a routerLink="./account">Account</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#Account" aria-expanded="true" aria-controls="Account">
+                </button>
+              </h2>
+              <div id="Account" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of Account">
+                  <a>{{option.label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a href="hggg">Blog</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#Blog" aria-expanded="true" aria-controls="Blog">
+                </button>
+              </h2>
+              <div id="Blog" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of Blogs">
+                  <a>{{option.label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a href="hggg">Pages</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#Pages" aria-expanded="true" aria-controls="Pages">
+                </button>
+              </h2>
+              <div id="Pages" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of pages">
+                  <a>{{option.label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark w-75">
+                  <a href="hggg">Currency</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#Currency" aria-expanded="true" aria-controls="Currency">
+                </button>
+              </h2>
+              <div id="Currency" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of Currency">
+                  <a>{{option.label}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item p-0 border-none ">
+              <h2 class="accordion-header border-none d-flex" id="headingOne">
+                <div class="w-75 text-dark">
+                  <a href="hggg">Language</a>
+                </div>
+                <button class="accordion-button collapsed border-none bg-white w-25 border-start" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                  aria-controls="collapseOne">
+
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse p-0" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body border" *ngFor="let option of Languages">
+                  <a>{{option.label}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- offcanvas end -->
+      <div>
+        <img src="../../../../assets/images/website logo.png" class="p-2">
+      </div>
+    </div>
+    <div class="w-50 search d-none d-sm-block ">
+      <span class=""><i class="bi bi-search"></i></span>
+      <input type="text" class="form-control border-none " aria-label="Text input with dropdown button "
+        placeholder="Search over 10,000 Products">
+    </div>
+    <div class="d-flex">
+      <!-- search offcanvas -->
+      <div class="d-flex align-items-center">
+        <button class="btn btn-white border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+          aria-controls="offcanvasTop"><i class="bi bi-search search-icon"></i></button>
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+          <div class="d-flex justify-content-between">
+            <input type="email" class="form-control border-none border-end-0 " id="exampleFormControlInput1"
+              placeholder="Search Here">
+            <button type="button" class="bi bi-search p-2 btn border border-start-0 border-none " data-bs-dismiss="" aria-label="Close"></button>
+            <button type="button" class="btn-close text-reset p-2 border" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+        </div>
+
+      </div>
+      <!-- top offcanvas end -->
+      <p class="d-none d-sm-flex align-items-center mb-0 btn" ><i class="bi bi-heart fw-bold position-relative" routerLink="../wish-list">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+            {{wishProducts.length}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </i>
+      </p>
+      <p class="d-flex align-items-center mb-0 btn" routerLink="../shopping-cart"><i class="bi bi-cart position-relative">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-white text-dark">
+            {{products.length}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </i></p>
+    </div>
+
+  </div>
+
+</div>
+
+

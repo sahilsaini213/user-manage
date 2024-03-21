@@ -1,0 +1,28 @@
+<div class="container container-sm">
+    <div class="d-flex align-item-center">
+        <a routerLink="../Home">Home</a>
+        <i class="bi bi-chevron-right"></i>
+        <p>My Account</p>
+    </div>
+    <div>
+        <h1>My Account</h1>
+    </div>
+    <div class="row">
+        <div class="card border-corner pt-4 col-md-12 col-lg-2 my-2 overflow-y-auto text-nowrap ">
+            <div class="d-flex d-lg-block ms-0">
+                <h5 class="d-none d-lg-block py-2 px-2">Navigation</h5>
+                <p class="p-1" routerLink="./dashboard" routerLinkActive="active-link">Dashboard</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./editprofile">Edit Profile</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./orderhistory">Order History</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./orderdetail">Order Details</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./addresses">Addresses</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./editaddress">Edit Address</p>
+                <p class="p-1" routerLinkActive="active-link" routerLink="./password">Password</p>
+                <p class="p-1" routerLinkActive="active-link">Logout</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

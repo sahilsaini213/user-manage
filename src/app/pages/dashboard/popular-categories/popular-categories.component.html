@@ -1,0 +1,45 @@
+<div class="bg-body-tertiary p-3">
+  <div class="container ">
+    <div class=" d-flex justify-content-between mt-4 align-items-center">
+      <div class="">
+        <h5 style="min-width: 175px;">Popular categories</h5>
+      </div>
+      <div class="w-100">
+        <p class="border-bottom border-4 mb-0  ms-2"></p>
+      </div>
+    </div>
+
+     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 row-cols-lg-3 card-setting ">
+      <div class="col card-width" *ngFor="let product of products1">
+      
+          <div class="card border-0 h-100" >
+            <div class="col-12 card-md-width px-4 py-2 ">
+              <div class=" d-block d-lg-flex card-small" style="max-width: 23rem;" >
+              <div class="col-12 col-md-12 col-lg-6 w-50-sm">
+                <img src="{{product.image}}"
+                  class="card-img-top image-width" alt="...">
+              </div>
+              <div class="col-12 col-md-6">
+                <div>
+                  <div> <a>
+                      <h5 class="card-title">{{product.name}}</h5>
+                    </a></div>
+  
+                  <div *ngFor="let product of product.item">
+                    <div><a class="text-nowrap text-decoration-none text-dark opacity-50">{{product}}</a></div>
+                  </div>
+                  <div class="pt-3">
+                    <a class="text-decoration-none" href="" >Show All</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div> 
+
+  </div>
+</div>

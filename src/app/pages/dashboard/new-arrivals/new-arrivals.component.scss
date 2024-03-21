@@ -1,0 +1,49 @@
+.border-none{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+}
+
+.bi{
+    font-size: small;
+}
+.card:hover{
+border: 2px solid yellow;
+.bi{
+background-color: yellow;
+}
+}
+.bi-fullscreen:hover{
+background-color: black !important;
+color: white;
+}
+.border-yellow{
+    border: 2px solid yellow !important;
+}
+// .badge:hover{
+// border: 2px solid rgb(164, 164, 164);
+// }
+
+button:hover{
+background-color: black !important;
+}
+h6{
+    font-size: 15px;
+}
+p{
+    font-size: 13px;
+}
+small{
+    font-size: 14px;
+}
+
+//rating color
+ .bi-star{
+    font-size: 0.9rem;
+    padding-right: 0.1rem;
+    color: #b0c4de;
+  }
+  .filled {
+    color: yellow;
+  }

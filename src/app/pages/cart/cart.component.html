@@ -1,0 +1,48 @@
+<div class=" border-end" *ngIf="products.length === 0; else arrayNotEmpty">
+  <p class="d-flex justify-content-center">No Item in the cart</p>
+</div>
+<ng-template #arrayNotEmpty>
+  <div class="d-flex justify-content-between border-corner p-3" *ngFor="let pro of products,index as i">
+    <img src="{{pro.image}}" style="width: 30%;">
+    <div class="fs-11">
+      <a>{{pro.name}}</a>
+      <div class="d-flex">
+        <p>{{pro.quantity}}</p>
+        <i class="bi bi-x"></i>
+        <p> <i class="bi bi-currency-rupee"></i>{{pro.price}}</p>
+      </div>
+    </div>
+    <br>
+    <div class="btn d-flex justify-content-end" (click)="delete(i)">
+      <i class="bi bi-x"></i>
+    </div>
+  </div>
+</ng-template>
+<div class=" border-end" *ngIf="products.length === 0; else arrayNotEmpt">
+</div>
+<ng-template #arrayNotEmpt>
+  <div class="p-4">
+    <table class="w-100">
+      <tr>
+        <th class="text-start">Subtotal</th>
+        <td class="text-end"><i class="bi bi-currency-rupee"></i>{{calculateSubtotal()}}</td>
+      </tr>
+      <tr>
+        <th class="text-start">Shipping</th>
+        <td class="text-end"><i class="bi bi-currency-rupee"></i>25</td>
+      </tr>
+      <tr>
+        <th class="text-start">Tax</th>
+        <td class="text-end"><i class="bi bi-currency-rupee"></i>{{Tax()}}</td>
+      </tr>
+      <tr>
+        <th class="text-start">Total</th>
+        <td class="text-end"><i class="bi bi-currency-rupee"></i>{{Total()}}</td>
+      </tr>
+    </table>
+    <div class="d-flex justify-content-between">
+      <button class="btn button1 border-corner" routerLink="../shopping-cart">View Cart</button>
+      <button class="btn btn-warning border-corner">Checkout</button>
+    </div>
+  </div>
+</ng-template>

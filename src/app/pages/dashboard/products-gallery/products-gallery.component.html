@@ -1,0 +1,190 @@
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="false" (to)="1">
+  <div class="container">
+    <div class="d-flex justify-content-between mt-4 align-items-center">
+      <div class="">
+        <h5 style="min-width: 175px;">Featured Products</h5>
+      </div>
+      <div class="w-50">
+        <p class="border-bottom border-2 mb-0 w-100"></p>
+      </div>
+      <div class="d-none d-md-flex">
+        <div class="text-center">
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === ''}" (click)="active = ''">All</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'power'}" (click)="active = 'power'">Power Tool</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'hand'}" (click)="active = 'hand'">Hand Tool</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark  rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'plumbing'}" (click)="active = 'plumbing'">Plumbing</a>
+        </div>
+      </div>
+      <div class=" d-flex justify-content-center">
+        <span [ngClass]="{'text-warning': active === 'arrow-left'}" (click)="active = 'arrow-left'"
+          data-bs-target="#carouselExampleControls" data-bs-slide="prev"><i
+            class="bi bi-arrow-left-square-fill fs-4"></i></span>
+        <span [ngClass]="{'text-warning': active === 'arrow-right'}" (click)="active = 'arrow-right'"
+          data-bs-target="#carouselExampleControls" data-bs-slide="next"><i
+            class="bi bi-arrow-right-square-fill fs-4"></i></span>
+      </div>
+    </div>
+    <div>
+      <div class="d-flex d-md-none justify-content-center mb-4">
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'All'}" (click)="active = 'All'">All</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'power'}" (click)="active = 'power'">Power Tool</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'hand'}" (click)="active = 'hand'">Hand Tool</a>
+        </div>
+        <div>
+          <a class="badge badge-pill border-gray fs-14 p-0 px-2 text-dark  rounded-pill text-decoration-none"
+            [ngClass]="{'border-yellow': active === 'plumbing'}" (click)="active = 'plumbing'"
+            target="#carouselExampleControls" data-bs-slide="next">Plumbing</a>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner overflow-auto">
+        <div class="carousel-item active">
+          <div class="row row-cols-md-4 row-cols-2">
+
+            <div class="col mb-2 d-block-small" *ngFor="let product of products,index as i ">
+              <div class="card-scroll container ps-0 pe-0">
+                <div class=" d-flex justify-content-between ">
+                  <div class=" card hover-container bordercolorchange border-none z-1" style="width: 18rem;">
+                    <div class="contentshow">
+                        <div class="badge bg-primary mt-2 ms-2 border-none position-absolute start-0 top-0" style="width: 50px;">NEW</div>
+                        <div class="position-absolute end-0 top-0" (click)="viewProductDetail(product)"> <i class="cart_button bi bi-fullscreen p-2"></i></div>
+                        <div class="pt-4">
+                      <img class="card-img-top" src="{{product.image}}" alt="Card image cap" routerLink="/product-detail" (click)="getobject(product)">
+                      <div class="card-body">
+                        <h5 class="card-title"><a>{{product.name}}</a></h5>
+                        <p>  
+                          <ngb-rating [rate]="product.rating">
+                          <ng-template let-fill="fill" let-index="index">
+                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                  [class.low]="index < 3"></i>
+                          </ng-template>
+                      </ngb-rating>
+                       3 Review</p>
+                        <h6 class="card-text"><i class="bi bi-currency-rupee"></i>{{product.price}}</h6>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="hidden-link">
+                      <div class="d-flex flex-wrap justify-content-between align-items-center p-2">
+                        <div class="py-2" *ngIf="!showSpinner">
+                           <button type="button" class="btn btn-warning cart_button border-none cart-button-width" (click)="getProducts(product)">Add
+                            To Cart</button></div>
+                            <div *ngIf="showSpinner" class="loading-spinner">
+                              <!-- Add your spinner component or HTML/CSS for the spinner here -->
+                              <!-- For simplicity, using a basic text representation here -->
+                              <button class="btn btn-warning rounded-0 text-center spinnerButtonHeight" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                              </button>
+                            </div>    
+                        <div class="mx-2 p-1 wishlist-button" (click)="wishlistArray(i)">
+                          <i class="heartcolor icon-color bi bi-heart-fill p-1" ></i>
+                        </div>
+                        <div class="wishlist-button p-1" (click)="compareProduct(product)">
+                            <i class=" heartcolor icon-color bi bi-bar-chart-fill p-1"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row row-cols-sm-3 row-cols-md-4 row-cols-2">
+            <div class="col mb-2" *ngFor="let product of product2,index as i">
+              <div class="card-scroll container p-0">
+                <div class=" d-flex justify-content-between ">
+                  <div class="card hover-container bordercolorchange border-none z-1" style="width: 18rem;">
+                    <div class="contentshow">
+                        <div class="badge bg-primary mt-2 ms-2 border-none position-absolute start-0 top-0" style="width: 50px;">NEW</div>
+                        <div class="position-absolute end-0 top-0" (click)="viewProductDetail(product)"> <i class="cart_button bi bi-fullscreen p-2"></i></div>
+                        <div class="pt-4">
+                      <img class="card-img-top" src="{{product.image}}" alt="Card image cap" routerLink="/product_detail" (click)="getobject(product)">
+                      <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <a>{{product.name}}</a>
+                        <p>  <ngb-rating [rate]="product.rating">
+                          <ng-template let-fill="fill" let-index="index">
+                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                  [class.low]="index < 3"></i>
+                          </ng-template>
+                      </ngb-rating>
+                       3 Review</p>
+                        <h6 class="card-text"><i class="bi bi-currency-rupee"></i>{{product.price}}</h6>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="hidden-link">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div *ngIf="!showSpinner">
+                          <button type="button" class="btn btn-warning cart_button border-none cart-button-width" (click)="getProduct2(product)">Add
+                            To Cart
+                          </button>
+                        </div>
+                        <div *ngIf="showSpinner" class="loading-spinner">
+                          <!-- Add your spinner component or HTML/CSS for the spinner here -->
+                          <!-- For simplicity, using a basic text representation here -->
+                          <button class="btn btn-warning rounded-0 text-nowrap spinnerButtonHeight" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          </button>
+                        </div>   
+
+                        <div>
+                          <button class="btn rounded-0 wishlist-button">
+                            <i class=" heartcolor icon-color bi bi-heart-fill p-1" (click)="wishlistArray2(i)"></i>
+                          </button>
+                          </div>
+                          <div class="wishlist-button" (click)="compareProduct(product)" >
+                              <i class=" heartcolor icon-color bi bi-bar-chart-fill p-1"></i>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- toast start-->
+      <ngb-toast class='position-fixed top-0 end-0 p-2 toast-color z-3' *ngIf="show" [autohide]="true" [delay]="5000">
+        {{element}}product is add to cart</ngb-toast>
+<!-- toast end -->
+    </div>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="position-relative">
+    <img src="../../../../assets/images/banner_cleanup_out.png" width="100%" class="d-none d-lg-block">
+    <img src="../../../../assets/images/banner.png" width="100%" class="d-none d-md-block d-lg-none" style="height: 25rem;">
+    <img src="../../../../assets/images/baner 2.png" width="100%"  class="d-block d-md-none" style="height: 20rem;">
+    <div class="position-absolute image-text-position text-center">
+      <h3>Hundreds Hand Tools</h3>
+      <p>Hammers, Chisels, Universal Pliers, Nippers, Jigsaws, Saws</p>
+      <button class="btn btn-warning cart_button rounded-0">Shop Now</button>
+    </div>
+  </div>
+</div>

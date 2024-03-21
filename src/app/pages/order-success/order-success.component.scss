@@ -1,0 +1,52 @@
+.bi{
+    font-size: 150px;
+}
+
+h1{
+    font-size: 36px;
+}
+
+p{
+    margin: 0;
+}
+.border-dashed-end{
+    border-right: 2px dashed #ebebeb;
+}
+
+@media screen and (min-width:768px) {
+.border-dashed-end-md{
+    border-right: 2px dashed #ebebeb;
+}
+}
+
+.name{
+    font-weight: 600;
+}
+
+.title{
+    font-size: 13px;
+}
+.value{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media screen and (max-width:768px) {
+    
+.d-hide{
+  display: none;
+}
+}
+
+@media screen and (min-width:768px) {
+    .d-md-hide{
+      display: none;
+    }
+}
+
+@media screen and (min-width:991px) {
+    .p-x-md{
+        padding-left: 210px; 
+        padding-right: 210px;
+    }
+}

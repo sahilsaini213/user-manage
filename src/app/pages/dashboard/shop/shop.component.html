@@ -1,0 +1,183 @@
+<div class="container">
+    <div class="d-flex justify-content-start ">
+        <a class="me-2 text-decoration-none text-dark sidebar-content" href="">Home</a>
+        <p class="text-body-tertiary">></p>
+        <a class="ms-2 text-decoration-none text-dark sidebar-content" href="">Shop</a>
+        <p class="ms-2 text-body-tertiary">></p>
+        <a class="ms-2 text-decoration-none text-dark sidebar-content" href="">Instrument</a>
+        <p class="ms-2 text-body-tertiary">></p>
+        <p class="ms-2 text-body-tertiary text-dark">Power Tools</p>
+      </div>
+      <h1>Power Tools</h1>
+    <div class="d-flex justify-content-start column-gap-3">
+   <div class="col-3 d-none d-md-block"> 
+    <app-sidebarmenu></app-sidebarmenu>
+  </div>
+   <div class="col-12 col-md-9 ">
+    <div class="d-md-flex justify-content-between mb-2 row-gap-3">
+        <div class="d-sm-flex justify-content-between align-items-center mb-2">
+            <!-- <i class="bi bi-grid-fill"></i>
+                    <div class=""><i class="bi bi-pause-fill"></i></div>
+                    <i class="cis-view-stream"></i> -->
+            <div>
+            <button class="d-md-none btn rounded-0 border text-nowrap" (click)="openNoBackdrop(content)">
+                <img width="20%" src="https://img.icons8.com/ios/50/horizontal-settings-mixer--v1.png" alt="horizontal-settings-mixer--v1"/>
+                <span>Filter</span>
+            </button>
+            <ng-template #content let-offcanvas>
+                <div class="offcanvas-header">
+                    <h4 class="offcanvas-title" id="offcanvas-basic-title">Filter</h4>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+                </div>
+                <div class="offcanvas-body p-0">
+                    <app-sidebarmenu></app-sidebarmenu>
+                    <div class=" py-3">
+                        <button type="button" class="btn btn-light rounded-0" (click)="offcanvas.close('Save click')">Save</button>
+                    </div>
+                </div>
+            </ng-template>
+            <button type="button" class="btn border rounded-0 bi bi-grid" (click)="changeLayout('step1')"  
+            [ngClass]="{'btn-warning': active === ''}" (click)="active = ''" title="Grid"></button>
+            <button type="button" class="btn border rounded-0 bi bi-grid" (click)="changeLayout('step2')"
+            [ngClass]="{'btn-warning': active === 'Grid With Feature'}" (click)="active = 'Grid With Feature'" title="Grid with Feature"></button>
+            <button type="button" class="btn border rounded-0 bi bi-grid" (click)="changeLayout('step3')"
+            [ngClass]="{'btn-warning': active === 'List'}" (click)="active = 'List'" title="List"></button>
+            </div>
+            <div>
+                <p class="ms-sm-3 mb-0 text-lg-nowrap">Showing 1–16 of 16 results </p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-md-between justify-content-sm-end justify-content-sm-start mb-2 align-items-center">
+            <div class="d-flex justify-content-between">
+                <div class="me-2 text-nowrap">
+                    <p class="m-0">Sort By</p>
+                </div>
+                <select class="form-select rounded-0 p-0" aria-label="Default select example">
+                    <option selected>Default</option>
+                    <option value="1">Name(A-Z)</option>
+                    <option value="2">Name(Z-A)</option>
+                  </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center ms-3">
+                <div class="me-2">
+                    <p class="m-0">Show</p>
+                </div>
+                <select class="form-select p-0 pe-4 rounded-0" aria-label="Default select example w-50">
+                    <option selected>12</option>
+                    <option value="1">24</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="step1" class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-md-3 width-small-case ">
+        <div class="col width-small-case" *ngFor="let product of products">
+            <div class="card-scroll h-100 mb-2 ">
+                <div class=" d-flex justify-content-between card-small-case">
+                    <div class=" card hover-container bordercolorchange border-none " style="width:100%;">
+                        <div class="contentshow">
+                            <div class="d-flex justify-content-between">
+                                <div class="badge bg-primary mt-3 ms-3  border-none" style="width: 50px;">NEW</div>
+                                <div class="mt-1"> <i class="colorblack bi bi-fullscreen pt-2 pb-2 ps-2 pe-2 "></i>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center">
+                            <img class="card-img-top" src="{{product.image}}" alt="Card image cap" style="width: 75%;">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <a>{{product.name}}</a>
+                                <h6 class="card-text">{{product.price}}</h6>
+                            </div>
+                        </div>
+                        <div class="hidden-link">
+                            <div class="d-flex justify-content-between">
+                                <div><button type="button"
+                                        class="btn btn-warning colorblack border-none cart-button-width ">Add
+                                        To Cart</button></div>
+                                <div><i class=" heartcolor icon-color bi bi-heart-fill ps-1 pe-1 pt-1"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="step2" class="row row-cols-2 row-cols-xs-2 row-cols-md-3 width-small-case ">
+        <div class="col width-small-case" *ngFor="let product of products">
+            <div class="card-scroll h-100 mb-2 ">
+                <div class=" d-flex justify-content-between card-small-case ">
+                    <div class=" card hover-container2 bordercolorchange border-none " style="width: 100%;">
+                        <div class="contentshow">
+                            <div class="d-flex justify-content-between ">
+                                <div class="badge bg-primary mt-3 ms-3  border-none" style="width: 50px;">NEW</div>
+                                <div class="mt-1"> <i class="colorblack bi bi-fullscreen pt-2 pb-2 ps-2 pe-2 "></i>
+                                </div>
+                            </div>
+                            <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <a>{{product.name}}</a>
+                                <li *ngFor="let product of product.specification">{{product}}</li>
+                                <h6 class="card-text">{{product.price}}</h6>
+                            </div>
+                        </div>
+                        <div class="hidden-link2">
+                            <div class="d-flex justify-content-between">
+                                <div><button type="button"
+                                        class="btn btn-warning colorblack border-none cart-button-width ">Add
+                                        To Cart</button></div>
+                                <div><i class=" heartcolor icon-color bi bi-heart-fill ps-1 pe-1 pt-1"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="step3">
+        <div class="card mb-3 border-none bordercolorchange relative" *ngFor="let product of products"
+            style="width: 100%;">
+            <div class="row g-0">
+                <div class="d-md-flex justify-content-start">
+                    <div class="col-md-3 width-small-case d-flex justify-content-center align-items-center">
+                        <img class="card-img-top" style="width: 80%;" src="{{product.image}}" alt="Card image cap">
+                    </div>
+                    <div class="col-md-8 d-md-flex justify-content-end card-small-case">
+                        <div class="card-body">
+                            <h6 class="card-title"> <a>{{product.name}}</a></h6>
+                            <ngb-rating [(rate)]="product.rating">
+                                <ng-template let-fill="fill" let-index="index">
+                                    <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100"
+                                        [class.low]="index < 3"></i>
+                                </ng-template>
+                            </ngb-rating>
+                            <ul class="m-0" *ngFor="let product of product.specification">
+                                <li class="card-text">{{product}}</li>
+                            </ul>
+                        </div>
+                        <div class="border-start">
+                            <div class="d-flex justify-content-between mt-3 col-1" id="fs">
+                                <div class="ms-4">Availability: </div>
+                                <div class="text-success text-nowrap">In Stock</div>
+                            </div>
+                            <div class="mt-2 mb-4 ms-4 mt-5">
+                                <h6>{{product.price}}</h6>
+                            </div>
+                            <div class="d-flex d-md-block justify-content-between p-3 w-75">
+                            <button type="button"
+                                class="btn btn-light hover-card-button border-none cart-button-width"> Add To
+                                Cart</button>
+                            <div class="mt-2"><i
+                                    class=" heartcolor icon-color bi bi-heart-fill ps-1 pe-1 pt-1 ms-2"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute"><i class="colorblack bi bi-fullscreen pt-2 pb-2 ps-2 pe-2 "></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>

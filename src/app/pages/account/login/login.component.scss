@@ -1,0 +1,17 @@
+.button-bg:hover {
+    background-color: #3d464d;
+    border-color: #3d464d;
+    color: white;
+  }
+
+  .form-check-input[type=checkbox]{
+    border-radius: 0;
+  }
+
+  .form-check-input:checked{
+    background-color: #ffc107;
+    border: none;
+  }
+  li{
+    font-size: 14px;
+  }

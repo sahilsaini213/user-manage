@@ -1,0 +1,186 @@
+<div class="container my-2">
+    <nav  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="../home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+    </nav>
+
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">Returning customer?
+        <a class="bg-white text text-dark text-decoration-none">Click here to login</a>
+    </div>
+
+    <div class="d-md-flex justify-content-evenly">
+
+        <div class="col-12 col-md-6 my-2">
+            <div class="border p-4">
+                <h3>Billing Details</h3>
+                <form>
+                    <div class="mb-3 d-md-flex justify-content-between">
+                        <div class="col-12 col-md-5 mb-2">
+                            <label for="exampleInputEmail1" class="form-label">First Name</label>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="First Name">
+                        </div>
+                        <div class="col-12 col-md-5 mb-2">
+                            <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                            <input type="password" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Company Name<span
+                                class="user-select-none">(Optional)</span></label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Country</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Street Address</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Apartment,Suite,Unit,etc(Optional)</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Town / City</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">State / Country</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Postcode / ZIP</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3 d-md-flex justify-content-between">
+                        <div class="col-12 col-md-5 mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                        </div>
+                        <div class="col-12 col-md-5 mb-2">
+                            <label for="exampleInputPassword1" class="form-label">Phone</label>
+                            <input type="password" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input rounded-0" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Create an Account?
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="border p-4">
+                <h2>Shipping Address</h2>
+                <div class="form-check mb-3">
+                    <input class="form-check-input rounded-0 border-none" type="checkbox" value=""
+                        id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Ship to a different Address
+                    </label>
+                </div>
+                <div>
+                    <label>Order notes(Optional)</label>
+                    <div class="form-floating">
+                        <textarea rows="6" cols="50" class="form-control h-25" placeholder="Leave a comment here"
+                            id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Comments</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border p-4 col-12 col-md-4 h-75 my-2">
+            <h4>Your Order</h4>
+            <table class="border-bottom w-100">
+                <tr class="border-bottom">
+                    <th class="pe-3 w-75">
+                        Products
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                </tr>
+                <tr *ngFor="let product of products">
+                    <td class="pe-3 w-75">
+                       {{product.name}} × {{product.quantity}}
+                    </td>
+                    <td class="text-nowrap">
+                        <i class="bi bi-currency-rupee"></i>{{product.price}}
+                    </td>
+                </tr>
+            </table>
+            <table class="w-100">
+                <tr>
+                    <th class="w-75">Subtotal</th>
+                    <td><i class="bi bi-currency-rupee"></i>{{calculateSubtotal()}}</td>
+                </tr>
+                <tr>
+                    <th>Shipping</th>
+                    <td><i class="bi bi-currency-rupee"></i>25</td>
+                </tr>
+                <tr class="border-bottom">
+                    <th>Tax</th>
+                    <td> <i class="bi bi-currency-rupee"></i>{{Tax()}}</td>
+                </tr>
+                <tr class="fs-4 text-nowrap">
+                    <th>Total</th>
+                    <td><i class="bi bi-currency-rupee"></i>{{Total()}}</td>
+                </tr>
+
+            </table>
+            <div>
+                <div class="border my-2 form-check background-gray">
+                    <div class="p-2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
+                        <label class="form-check-label" for="flexRadioDefault">
+                            Direct bank transfer
+                        </label>
+                    </div>
+                    <p class="opacity-75 p-3 ps-0">
+                        Make your payment directly into our bank account.
+                        Please use your Order ID as the payment reference.
+                        Your order will not be shipped until the funds have cleared in our account.
+                    </p>
+                </div>
+                <div class="border my-2 form-check">
+                    <div class="p-2 ">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Check payments
+                        </label>
+                    </div>
+                </div>
+                <div class="border my-2 form-check">
+                    <div class="p-2">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Cash on Delivery
+                        </label>
+                    </div>
+                </div>
+                <div class="border my-2 form-check">
+                    <div class="p-2 form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Paypal
+                        </label>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input rounded-0" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        I have read and agree to the website<a class="terms text-decoration-none"> terms and conditions</a>*
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-warning rounded-0 fs-2 col-12">Place Order</button>
+        </div>
+    </div>
+
+
+</div>
